@@ -5,7 +5,7 @@ export const showBestList = () => {
   bestList.textContent = "";
   const storedArr = JSON.parse(localStorage.getItem("favorite")) || [];
   const h4 = document.createElement("h4");
-  h4.textContent = "Meine favorite Drinks:";
+  h4.textContent = "Meine Lieblingsdrinks:";
   bestList.appendChild(h4);
   storedArr.forEach((drink) => {
     const li = document.createElement("li");
