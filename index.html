@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Online Bar</title>
+  </head>
+  <body>
+    <header>
+      <h1>Online-Bar</h1>
+
+      <button class="main--btn" id="showBestBtn">
+        Zeige meine Lieblingsliste an!
+      </button>
+      <button class="main--btn" id="hideBestBtn">
+        Verstecke meine Lieblingsliste
+      </button>
+      <div id="header">
+        <p>Willkommen in der Online Bar</p>
+        <p>
+          Hier findest du Informationen zu dein lieblingsgetränken. Ob
+          alkoholisch, oder alkoholfrei, mit uns ist der passende Getränk immer
+          dabei!
+        </p>
+      </div>
+    </header>
+
+    <main>
+      <p><u>Folgende Möglichkeiten liegen vor:</u></p>
+      <ul id="theList">
+        <li>
+          <p>Zurück zum Start -</p>
+          <button class="main--btn" id="startBtn">Start</button>
+        </li>
+        <li>
+          <p>Zufälliges Getränk mischen lassen -</p>
+          <button class="main--btn" id="rndBtn">Jetzt mischen!</button>
+        </li>
+        <li>
+          <p>Nach Getränk suchen -</p>
+          <button class="main--btn" id="searchBtn">Suchen</button>
+        </li>
+        <li>
+          <p>Liste der populärsten Drinks aufrufen -</p>
+          <button class="main--btn" id="popularBtn">Jetzt aufrufen!</button>
+        </li>
+      </ul>
+
+      <section id="output"></section>
+      <ol id="bestList"></ol>
+    </main>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
