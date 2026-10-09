@@ -1,5 +1,5 @@
 import { mixRndCocktail } from "./mixRndCocktail.js";
-import { showBestList, hideBestList } from "./BestList.js";
+import { bestList, showBestList, hideBestList } from "./BestList.js";
 import { searchCocktail } from "./searchCocktail.js";
 import { filterCocktail } from "./filterCocktail.js";
 
@@ -66,6 +66,18 @@ showBestBtn.addEventListener("click", () => {
 
 hideBestBtn.addEventListener("click", () => {
   hideBestList();
+});
+
+bestList.addEventListener("click", (e) => {
+  if (e.target.classList.contains("delete--btn")) {
+    const stored = JSON.parse(localStorage.getItem("favorite"));
+    console.log(e.target.previousSibling.textContent.slice(6));
+    const newStored = stored.filter((drink) => {
+      return drink.name !== e.target.previousSibling.textContent.slice(6);
+    });
+    e.target.parentElement.replaceChildren();
+    localStorage.setItem("favorite", JSON.stringify(newStored));
+  }
 });
 
 const initialPath =

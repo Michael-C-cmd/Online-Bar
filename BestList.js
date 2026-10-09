@@ -1,4 +1,4 @@
-const bestList = document.getElementById("bestList");
+export const bestList = document.getElementById("bestList");
 
 export const showBestList = () => {
   bestList.classList.remove("hidden");
@@ -9,7 +9,12 @@ export const showBestList = () => {
   bestList.appendChild(h4);
   storedArr.forEach((drink) => {
     const li = document.createElement("li");
+    const deleteBtn = document.createElement("button");
+    deleteBtn.classList.add("delete--btn");
+    deleteBtn.classList.add("main--btn");
+    deleteBtn.textContent = "entfernen";
     li.textContent = `Name: ${drink.name}`;
+    li.appendChild(deleteBtn);
     bestList.appendChild(li);
   });
 };
