@@ -1,4 +1,5 @@
 import { output } from "./app.js";
+import { bestList, showBestList } from "./BestList.js";
 
 export const createPage = (data) => {
   const cName = document.createElement("h3");
@@ -53,7 +54,18 @@ export const createPage = (data) => {
     } else {
       stored = JSON.parse(localStorage.getItem("favorite"));
     }
-    const storedArr = [...stored, drink];
-    localStorage.setItem("favorite", JSON.stringify(storedArr));
+
+    if (
+      !stored.some((storedDrink) => {
+        return storedDrink.name === drink.name;
+      })
+    ) {
+      const storedArr = [...stored, drink];
+      localStorage.setItem("favorite", JSON.stringify(storedArr));
+    }
+
+    if (!bestList.classList.contains("hidden")) {
+      showBestList();
+    }
   });
 };
