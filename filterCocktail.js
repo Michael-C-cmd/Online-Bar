@@ -4,8 +4,14 @@ import { createPage } from "./createPage.js";
 import { listPopularDrinks } from "./listPopularDrinks.js";
 
 export const filterCocktail = async () => {
+  if (output.classList.contains("important")) {
+    output.classList.remove("important");
+  }
   const data = await listPopularDrinks();
-  if (data.data === null) {
+  if (data.error) {
+    output.textContent = data.error;
+    output.classList.add("important");
+    return;
   }
   const select = document.createElement("select");
   const showBtn = document.createElement("button");
